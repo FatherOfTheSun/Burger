@@ -7,7 +7,7 @@ function createQmarks(num) {
     }
     return arr.toString();
 }
-function translateSql(dbj) {
+function translateSql(obj) {
     var arr = [];
     for (var key in ob) {
         var value = ob[key];
@@ -31,7 +31,7 @@ var orm = {
             }
             cb(res)
         });
-    }
+    },
     insertOne: function (table, cols, vals, cb) {
         var dbQuery =
             "INSERT INTO " +
@@ -84,4 +84,5 @@ var orm = {
         });
     }
 
-}
+};
+module.exports = orm;

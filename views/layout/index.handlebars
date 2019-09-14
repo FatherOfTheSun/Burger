@@ -1,0 +1,50 @@
+<div class="container">
+
+    <div class="jumbotron">
+        <h1>Order Burger for Pick up</h1>
+        <p> Burger Orders, Burger Pickup.</p>
+        <br>
+        <h2> Select a Burger or Sandwich </h2>
+        <panel>
+            <form class="create-form">
+                <div class="form-group">
+                    <label form="newburger"> Order Fresh Burger </label>
+                    <input type="text" id="newburger" name="burger">
+                    <button type="submit" class="btn btn-success" id="addburger">
+                        <span class="fa fa-thumbs-up">
+                            <</span> </button> </div> </form> </panel> </div> </div> <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="panel panel-default">
+                                        <div class="pannel-heading" id="leftside">Order Up</div>
+                                        <div class="panel-body">
+
+                                            <ul> {{#each burgers}}
+                                                {{#unless devoured}}
+                                                <span> {{this.id}} - {{this.burger_name}}</span>
+                                                <button type="button" class "eat btn btn-warning" id="eatbutton"
+                                                    data-id="{{this.id}}" | data-newDevoured={{devour}}><span
+                                                        class="fa fa-euro"></span></button>
+                                                {{/unless}}
+                                                {{/each}}
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="panel panel-default">
+                                        <div class="pannel-heading" id="rightside">Eat Your BURGER!</div>
+                                        <div class="panel-body">
+                                            <ul> {{#each burgers}}
+                                                {{#if devoured}}
+                                                <span> {{this.id}} - {{this.burger_name}}</span>
+                                                <button type="button" class "eat btn btn-warning" id="eatbutton"
+                                                    data-id="{{this.id}}" | data-newDevoured={{devour}}><span
+                                                        class="fa fa-bed"></span></button>
+                                                {{/if}}
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                </div>
