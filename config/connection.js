@@ -1,16 +1,16 @@
-var mysql = require("mysql");
-connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Amartin4",
-    database: "burgers_db"
-});
+const mysql = require("mysql");
+
 connection.connect(function (err) {
-    if (err) {
-        console.error("error connection: " + err.stack);
-        return;
+    if (process.env.JAWSDB_URL) {
+        connection = mysql.createConnection(process.env.JAWSDB_URL);
+    } else {
 
-
+        connection = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Amartin4",
+            database: "burgers_db"
+        });
     }
-    console.log("connected as id " + connection.threadId);
-});
+    connection.connect();
+    module.exports = connection;
